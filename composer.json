@@ -9,7 +9,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Lopatin96\\LaraLocale\\ServiceProvider"
+                "Lopatin96\\LaraLocale\\LaraLocaleServiceProvider"
             ]
         }
     },
