@@ -9,8 +9,9 @@ class LaraLocaleServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/lara-locale.php', 'lara-locale'
+            __DIR__ . '/../config/lara-locale.php', 'lara-locale'
         );
+    }
 
     public function boot()
     {
