@@ -194,7 +194,7 @@ function createConfig(): void
         throw new RuntimeException(sprintf('Directory "%s" was not created', "config"));
     }
 
-    $configFileName = "config/config.php";
+    $configFileName = "config/lara-locale.php";
     $configContent = "<?php\n\nreturn [\n\n];\n";
 
     file_put_contents($configFileName, $configContent);
