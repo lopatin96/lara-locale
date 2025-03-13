@@ -19,11 +19,11 @@ class LaraLocaleServiceProvider extends ServiceProvider
             __DIR__ . '/../config/lara-locale.php' => config_path('lara-locale.php'),
         ], 'lara-locale-config');
 
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+
         $this->publishesMigrations([
             __DIR__ . '/../database/migrations' => database_path('migrations'),
         ], 'lara-locale-migrations');
-
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
 
