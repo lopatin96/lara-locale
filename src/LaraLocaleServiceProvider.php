@@ -23,6 +23,8 @@ class LaraLocaleServiceProvider extends ServiceProvider
             __DIR__ . '/../database/migrations' => database_path('migrations'),
         ], 'lara-locale-migrations');
 
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
 
         $this->loadTranslationsFrom(__DIR__ . '/../lang', 'lara-locale');
