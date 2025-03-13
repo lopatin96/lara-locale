@@ -8,15 +8,15 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('XXX', static function (Blueprint $table) {
-
+        Schema::table('users', static function (Blueprint $table) {
+            $table->string('locale')->nullable();
         });
     }
 
     public function down(): void
     {
-        Schema::table('XXX', static function (Blueprint $table) {
-
+        Schema::table('users', static function (Blueprint $table) {
+            $table->dropColumn(['locale']);
         });
     }
 };
