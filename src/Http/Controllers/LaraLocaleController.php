@@ -2,7 +2,6 @@
 
 namespace Lopatin96\LaraLocale\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Lopatin96\LaraLocale\Helpers\LocaleHelper;
 use Lopatin96\LaraLocale\Services\LocaleService;
@@ -13,7 +12,7 @@ class LaraLocaleController extends Controller
         protected LocaleService $localeService
     ) {}
 
-    public function __invoke(Request $request, string $locale): RedirectResponse
+    public function __invoke(string $locale): RedirectResponse
     {
         $locale = LocaleHelper::validateLocale($locale);
 
