@@ -3,6 +3,9 @@
 namespace Lopatin96\LaraLocale;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Event;
+use Lopatin96\LaraLocale\Services\LocaleService;
 
 class LaraLocaleServiceProvider extends ServiceProvider
 {
@@ -11,6 +14,12 @@ class LaraLocaleServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__ . '/../config/lara-locale.php', 'lara-locale'
         );
+
+        Event::listen(Registered::class, static function ($event) {
+            $event->user->forceFill([
+                'locale' => LocaleService::determineLocale(),
+            ])->save();
+        });
     }
 
     public function boot()
