@@ -6,4 +6,5 @@ use Lopatin96\LaraLocale\Http\Controllers\LaraLocaleController;
 
 Route::get('/switch-locale/{locale}', LaraLocaleController::class)
     ->whereIn('locale', LocaleHelper::getAvailableLocales())
-    ->name('switch-locale');
+    ->name('switch-locale')
+    ->middleware('web');
