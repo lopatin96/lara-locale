@@ -9,7 +9,7 @@ use Lopatin96\LaraLocale\Services\LocaleService;
 
 class LaraLocaleServiceProvider extends ServiceProvider
 {
-    public function register(LocaleService $localeService)
+    public function register()
     {
         $this->mergeConfigFrom(
             __DIR__ . '/../config/lara-locale.php', 'lara-locale'
@@ -17,7 +17,7 @@ class LaraLocaleServiceProvider extends ServiceProvider
 
         Event::listen(Registered::class, static function ($event) {
             $event->user->forceFill([
-                'locale' => $localeService->determineLocale(),
+                'locale' => (new LocaleService)->determineLocale(),
             ])->save();
         });
     }
